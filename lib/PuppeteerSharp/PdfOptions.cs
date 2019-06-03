@@ -27,6 +27,11 @@ namespace PuppeteerSharp
         public bool DisplayHeaderFooter { get; set; }
 
         /// <summary>
+        /// Generate the PDF with a transparent background - useful if the PDF is going to be watermarked later.
+        /// </summary>
+        public bool TransparentBackground { get; set; }
+
+        /// <summary>
         /// HTML template for the print header. Should be valid HTML markup with following classes used to inject printing values into them:
         ///   <c>date</c> - formatted print date
         ///   <c>title</c> - document title
@@ -34,6 +39,7 @@ namespace PuppeteerSharp
         ///   <c>pageNumber</c> - current page number
         ///   <c>totalPages</c> - total pages in the document
         /// </summary>
+        /// 
         public string HeaderTemplate { get; set; } = string.Empty;
 
         /// <summary>
