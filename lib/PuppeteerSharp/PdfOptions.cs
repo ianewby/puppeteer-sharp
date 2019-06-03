@@ -109,6 +109,7 @@ namespace PuppeteerSharp
             => options != null &&
                    Scale == options.Scale &&
                    DisplayHeaderFooter == options.DisplayHeaderFooter &&
+                   TransparentBackground == options.TransparentBackground &&
                    HeaderTemplate == options.HeaderTemplate &&
                    FooterTemplate == options.FooterTemplate &&
                    PrintBackground == options.PrintBackground &&
@@ -125,6 +126,7 @@ namespace PuppeteerSharp
             => -711844102
                 ^ Scale.GetHashCode()
                 ^ DisplayHeaderFooter.GetHashCode()
+                ^ TransparentBackground.GetHashCode()
                 ^ EqualityComparer<string>.Default.GetHashCode(HeaderTemplate)
                 ^ EqualityComparer<string>.Default.GetHashCode(FooterTemplate)
                 ^ PrintBackground.GetHashCode()
