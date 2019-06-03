@@ -867,6 +867,20 @@ namespace PuppeteerSharp
             var marginBottom = ConvertPrintParameterToInches(options.MarginOptions.Bottom);
             var marginRight = ConvertPrintParameterToInches(options.MarginOptions.Right);
 
+            if (options.TransparentBackground)
+            {
+                await Client.SendAsync("Emulation.setDefaultBackgroundColorOverride", new EmulationSetDefaultBackgroundColorOverrideRequest
+                {
+                    Color = new EmulationSetDefaultBackgroundColorOverrideColor
+                    {
+                        R = 0,
+                        G = 0,
+                        B = 0,
+                        A = 0
+                    }
+                }).ConfigureAwait(false);
+            }
+
             var result = await Client.SendAsync<PagePrintToPDFResponse>("Page.printToPDF", new PagePrintToPDFRequest
             {
                 Landscape = options.Landscape,
